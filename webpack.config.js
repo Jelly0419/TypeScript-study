@@ -8,7 +8,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = (env, argv) => {
   const config = {
     mode: 'development',
-    entry: './src/index.js',
+    entry: './src/index.ts',
     output: {
       // 输出文件的目标路径，必须要是绝对路径
       path: resolve(__dirname, 'typeScriptStudy'),
@@ -69,6 +69,16 @@ module.exports = (env, argv) => {
               ],
             },
           },
+        },
+        // 处理TS
+        {
+          test:/\.(ts|tsx)$/i,
+          use:[
+            {
+              loader:'ts-loader'
+            }
+          ],
+          exclude: /node_modules/,
         },
         // 处理图片
         {
