@@ -38,47 +38,42 @@ module.exports = (env, argv) => {
             'sass-loader',
           ], // less-loader作用是将less转换成普通的css
         },
-        // 处理JS
+        // 处理JS TS
         {
-          test: /\.m?js$/,
+          test: /\.(m?js|ts|tsx)$/,
           exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                [
-                  '@babel/preset-env',
-                  {
-                    // 按需加载
-                    useBuiltIns: 'usage',
-                    // corejs的版本
-                    corejs: 3,
-                    targets: {
-                      browsers: ['last 1 version', '> 1%'],
-                    },
-                  },
-                ],
-              ],
-              plugins: [
-                [
-                  '@babel/plugin-transform-runtime',
-                  {
-                    corejs: false, // 使用这行代码需要安装@babel/runtime-corejs3 包
-                  },
-                ],
-              ],
-            },
-          },
-        },
-        // 处理TS
-        {
-          test:/\.(ts|tsx)$/i,
-          use:[
+          use: [
             {
-              loader:'ts-loader'
-            }
+              loader: 'babel-loader',
+              options: {
+                presets: [
+                  [
+                    '@babel/preset-env',
+                    {
+                      // 按需加载
+                      useBuiltIns: 'usage',
+                      // corejs的版本
+                      corejs: 3,
+                      targets: {
+                        browsers: ['last 1 version', '> 1%'],
+                      },
+                    },
+                  ],
+                ],
+                plugins: [
+                  [
+                    '@babel/plugin-transform-runtime',
+                    {
+                      corejs: false, // 使用这行代码需要安装@babel/runtime-corejs3 包
+                    },
+                  ],
+                ],
+              },
+            },
+            {
+              loader: 'ts-loader',
+            },
           ],
-          exclude: /node_modules/,
         },
         // 处理图片
         {

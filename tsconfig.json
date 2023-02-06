@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
-    "lib": ["es2021"],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "commonjs",
-    "target": "es2021",
-    "outDir": "./",
+    "target": "ES2015", // 编译成的JS版本
+    "outDir": "./typeScriptStudy",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "sourceMap": true
+    "sourceMap": true,
+    "noEmitOnError": true, // 报错不编译
   },
   "exclude": ["node_modules", "typeScriptStudy"],
-  "files": ["src/index.ts"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts", "index.d.ts", "index.d.ts"]
 }
