@@ -19,6 +19,9 @@ module.exports = (env, argv) => {
       alias: {
         '@': resolve('src'),
       },
+      extensions: ['.ts','.js', '.json', '.css', '.scss'], // 在引入文件时，可以省略后缀名
+      // 指定模块默认加载的路径
+      modules: [resolve(__dirname, '../node_modules'), 'node_modules'],
     },
     module: {
       rules: [
@@ -57,6 +60,7 @@ module.exports = (env, argv) => {
                       targets: {
                         browsers: ['last 1 version', '> 1%'],
                       },
+                      modules:"commonjs"
                     },
                   ],
                 ],
@@ -70,11 +74,9 @@ module.exports = (env, argv) => {
                 ],
               },
             },
-            {
-              loader: 'ts-loader',
-            },
+            'ts-loader',
           ],
-        },
+        }, 
         // 处理图片
         {
           test: /\.(png|gif|jpe?g)$/i,

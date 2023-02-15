@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "commonjs",
     "target": "ES2015", // 编译成的JS版本
     "outDir": "./typeScriptStudy",
@@ -11,6 +10,9 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "noEmitOnError": true, // 报错不编译
+    "paths": {
+      "@/*":["./src/*"]
+    }
   },
   "exclude": ["node_modules", "typeScriptStudy"],
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts", "index.d.ts", "index.d.ts"]

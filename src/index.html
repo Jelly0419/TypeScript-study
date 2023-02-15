@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,34 @@
   <title>TypeScript Study</title>
   <link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
-  
+  <!-- 创建游戏主容器 -->
+  <div id="main">
+    <!-- 设置游戏舞台 -->
+    <div id="stage">
+      <!-- 设置蛇 -->
+      <div id="snake">
+        <!-- snake内部的div表示蛇的各部分 -->
+        <div></div>
+      </div>
+      <div id="food">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <!-- 设置游戏积分牌 -->
+    <div id="score-panel">
+      <div>
+        SCORE: <span id="score">0</span>
+      </div>
+      <div>
+        level <span id="level">1</span>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>
